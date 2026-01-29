@@ -1,16 +1,26 @@
-# Compiled class file
+# -----------------------
+# Compiled class files
+# -----------------------
 *.class
 
-# Log file
+# -----------------------
+# Logs
+# -----------------------
 *.log
 
+# -----------------------
 # BlueJ files
+# -----------------------
 *.ctxt
 
+# -----------------------
 # Mobile Tools for Java (J2ME)
+# -----------------------
 .mtj.tmp/
 
-# Package Files #
+# -----------------------
+# Package Files
+# -----------------------
 *.jar
 *.war
 *.nar
@@ -19,6 +29,67 @@
 *.tar.gz
 *.rar
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# -----------------------
+# Virtual machine crash logs
+# -----------------------
 hs_err_pid*
 replay_pid*
+
+# -----------------------
+# IntelliJ IDEA
+# -----------------------
+*.iml
+*.iws
+.idea/
+out/
+# Optional: workspace.xml if you don't want local config
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries/
+.idea/libraries/
+
+# -----------------------
+# Eclipse
+# -----------------------
+.metadata/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+
+# -----------------------
+# Maven / Gradle
+# -----------------------
+target/
+build/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+.gradle/
+!gradle-wrapper.jar
+.gradle/
+build/
+!gradle-wrapper.jar
+
+# -----------------------
+# OS Files
+# -----------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*
