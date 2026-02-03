@@ -63,18 +63,7 @@ local.properties
 # -----------------------
 target/
 build/
-*.class
-*.jar
-*.war
-*.ear
-*.nar
-*.zip
-*.tar.gz
-*.rar
 .gradle/
-!gradle-wrapper.jar
-.gradle/
-build/
 !gradle-wrapper.jar
 
 # -----------------------
