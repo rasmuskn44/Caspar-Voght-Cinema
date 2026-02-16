@@ -1,0 +1,12 @@
+services:
+
+  db:
+    image: postgres:18
+    restart: always
+    container_name: local-postgres
+    environment:
+      POSTGRES_DB: caspar_db
+      POSTGRES_USER: caspar
+      POSTGRES_PASSWORD: caspar
+    ports:
+      - "1010:1010"
