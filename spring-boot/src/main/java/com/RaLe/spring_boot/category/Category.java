@@ -1,20 +1,22 @@
-package com.RaLe.spring_boot.movie;
+package com.RaLe.spring_boot.category;
+
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Movie")
-public class Movie {
+@Table(name="category")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false)
-    private String title;
+    private String category;
 
     public long getId() {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getCategory() {
+        return category;
     }
 }

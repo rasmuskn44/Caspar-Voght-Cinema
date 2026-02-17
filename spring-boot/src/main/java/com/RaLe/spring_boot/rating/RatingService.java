@@ -10,13 +10,5 @@ public class RatingService {
         this.ratingRepository  = ratingRepository;
     }
 
-    protected List<Optional<RatingResponse>> getRatingsForMovie(long MovieId){
-        //TODO
-        return getRatingsForMovie(0,0);
-    }
 
-    protected List<Optional<RatingResponse>> getRatingsForMovie(long MovieId, long userId){
-        //TODO
-        return null;
-    }
 }
