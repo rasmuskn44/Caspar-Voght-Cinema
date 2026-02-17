@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
@@ -20,11 +21,11 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getMovie(@Valid @PathVariable long id){
+    public MovieResponse getMovie(@Valid @PathVariable long id) {
         Optional<MovieResponse> movieResponse = movieService.getMovie(id);
-        if(movieResponse.isEmpty()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Movie not found!");
+        if (movieResponse.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Movie with id " + id + " not found!");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(movieResponse.get());
+        return movieResponse.get();
     }
 }

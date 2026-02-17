@@ -9,9 +9,13 @@ import com.RaLe.spring_boot.user.UserResponse;
 import org.aspectj.weaver.patterns.TypeCategoryTypePattern;
 
 import java.util.Calendar;
+import java.util.List;
 
-public record RatingResponse(UserResponse user, MovieResponse movie, CategoryResponse category, int rating) {
-    public RatingResponse(Rating rating) {
-        this(new UserResponse(rating.getUser()), new MovieResponse(rating.getMovie()), new CategoryResponse(rating.getCategory()), rating.getRating());
+public record RatingResponse(Long id, UserResponse user, MovieResponse movie, List<CategoryRatingResponse> categoryRatingResponses) {
+    public RatingResponse(Rating rating){
+        this(   rating.getId(),
+                new UserResponse(rating.getUser()),
+                new MovieResponse(rating.getMovie()),
+                rating.getRatings().stream().map(CategoryRatingResponse::new).toList());
     }
 }

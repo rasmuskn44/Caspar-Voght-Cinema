@@ -1,37 +1,39 @@
 package com.RaLe.spring_boot.rating;
 
-import com.RaLe.spring_boot.category.Category;
 import com.RaLe.spring_boot.movie.Movie;
 import com.RaLe.spring_boot.user.User;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 
 import java.util.List;
 
 @Entity
 @Table(name="rating")
 public class Rating {
-
-    @EmbeddedId
-    private RatingKey ratingKey;
-    @Min(0)
-    @Max(10)
-    private int rating;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable = false)
+    private User user;
+    @ManyToOne
+    @JoinColumn(name="movie_id", nullable = false)
+    private Movie movie;
+    @OneToMany(mappedBy = "rating")
+    private List<RatingCategory> ratings;
 
     public User getUser() {
-        return ratingKey.getUser();
+        return user;
     }
 
     public Movie getMovie() {
-        return ratingKey.getMovie();
+        return movie;
     }
 
-    public Category getCategory() {
-        return ratingKey.getCategory();
+    public Long getId() {
+        return id;
     }
 
-    public int getRating() {
-        return rating;
+    public List<RatingCategory> getRatings() {
+        return ratings;
     }
 }
