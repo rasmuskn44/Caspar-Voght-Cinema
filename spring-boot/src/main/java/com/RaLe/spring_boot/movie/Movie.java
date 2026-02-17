@@ -2,7 +2,7 @@ package com.RaLe.spring_boot.movie;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="Movie")
+@Table(name="movie")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

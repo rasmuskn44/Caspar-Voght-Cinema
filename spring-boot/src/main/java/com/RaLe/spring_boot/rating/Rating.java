@@ -2,6 +2,7 @@ package com.RaLe.spring_boot.rating;
 
 import com.RaLe.spring_boot.category.Category;
 import com.RaLe.spring_boot.movie.Movie;
+import com.RaLe.spring_boot.user.User;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -9,7 +10,7 @@ import jakarta.validation.constraints.Min;
 import java.util.List;
 
 @Entity
-@Table(name="Rating")
+@Table(name="rating")
 public class Rating {
 
     @EmbeddedId
@@ -18,8 +19,8 @@ public class Rating {
     @Max(10)
     private int rating;
 
-    public long getUserId() {
-        return ratingKey.getUserId();
+    public User getUser() {
+        return ratingKey.getUser();
     }
 
     public Movie getMovie() {

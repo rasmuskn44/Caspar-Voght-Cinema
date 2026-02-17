@@ -2,14 +2,18 @@ package com.RaLe.spring_boot.rating;
 
 import com.RaLe.spring_boot.category.Category;
 import com.RaLe.spring_boot.movie.Movie;
+import com.RaLe.spring_boot.user.User;
 import jakarta.persistence.*;
+import jdk.jfr.Unsigned;
+
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
 public class RatingKey implements Serializable {
-    @Column(nullable = false)
-    private Long userId;
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable = false)
+    private User user;
     @ManyToOne
     @JoinColumn(name="movie_id", nullable = false)
     private Movie movie;
@@ -17,9 +21,7 @@ public class RatingKey implements Serializable {
     @JoinColumn(name="category_id", nullable = false)
     private Category category;
 
-    public Long getUserId() {
-        return userId;
-    }
+    public User getUser() {return user;}
 
     public Movie getMovie() {
         return movie;
@@ -32,16 +34,14 @@ public class RatingKey implements Serializable {
     @Override
     public boolean equals(Object object) {
         if (this == object) return true;
-        if (!(object instanceof RatingKey)) return false;
-
-        RatingKey keyToCompare = (RatingKey) object;
-        return  Objects.equals(userId, keyToCompare.getUserId()) &&
+        if (!(object instanceof RatingKey keyToCompare)) return false;
+        return  Objects.equals(user, keyToCompare.getUser()) &&
                 Objects.equals(movie, keyToCompare.getMovie()) &&
                 Objects.equals(category, keyToCompare.getCategory());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(userId, movie, category);
+        return Objects.hash(user, movie, category);
     }
 }
