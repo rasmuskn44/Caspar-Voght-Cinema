@@ -1,10 +1,7 @@
 package com.RaLe.spring_boot.rating;
 
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,8 +14,8 @@ public class RatingController {
         this.ratingService = ratingService;
     }
 
-    @GetMapping("/{movieId}")
-    public List<RatingResponse> getRatingsByMovie(@Valid @PathVariable long movieId){
+    @GetMapping()
+    public List<RatingResponse> getRatingsByMovie(@Valid @RequestParam long movieId){
         return ratingService.getRatingsByMovie(movieId);
     }
 }
