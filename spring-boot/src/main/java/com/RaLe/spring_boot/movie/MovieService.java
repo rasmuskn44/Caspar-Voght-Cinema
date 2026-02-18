@@ -12,9 +12,6 @@ public class MovieService {
     }
     protected Optional<MovieResponse> getMovie(long id){
         Optional<Movie> movie = movieRepository.findById(id);
-        if(!movie.isPresent()){
-            return Optional.empty();
-        }
-        return Optional.of(new MovieResponse(movie.get()));
+        return movie.map(MovieResponse::new);
     }
 }

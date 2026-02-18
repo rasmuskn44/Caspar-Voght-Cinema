@@ -36,4 +36,5 @@ public class Rating {
     public List<RatingCategory> getRatings() {
         return ratings;
     }
+
 }
